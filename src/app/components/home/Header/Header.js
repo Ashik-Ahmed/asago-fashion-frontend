@@ -1,19 +1,23 @@
+'use client'
+
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { motion } from "framer-motion";
-import { logo, logoLight } from "../../../assets/images";
+import { logo, logoLight } from "../../../../assets/images";
 import Image from "../../designLayouts/Image";
 import { navBarList } from "../../../constants";
 import Flex from "../../designLayouts/Flex";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(true);
   const [sidenav, setSidenav] = useState(false);
   const [category, setCategory] = useState(false);
   const [brand, setBrand] = useState(false);
-  const location = useLocation();
+  const location = usePathname()
+  console.log(location);
   useEffect(() => {
     let ResponsiveMenu = () => {
       if (window.innerWidth < 667) {
@@ -30,7 +34,7 @@ const Header = () => {
     <div className="w-full h-20 bg-white sticky top-0 z-50 border-b-[1px] border-b-gray-200">
       <nav className="h-full px-4 max-w-container mx-auto relative">
         <Flex className="flex items-center justify-between h-full">
-          <Link to="/">
+          <Link href="/">
             <div>
               <Image className="w-20 object-cover" imgSrc={logo} />
             </div>
@@ -45,14 +49,14 @@ const Header = () => {
               >
                 <>
                   {navBarList.map(({ _id, title, link }) => (
-                    <NavLink
+                    <Link
                       key={_id}
                       className="flex font-normal hover:font-bold w-20 h-6 justify-center items-center px-12 text-base text-[#767676] hover:underline underline-offset-[4px] decoration-[1px] hover:text-[#262626] md:border-r-[2px] border-r-gray-300 hoverEffect last:border-r-0"
-                      to={link}
-                      state={{ data: location.pathname.split("/")[1] }}
+                      href={link}
+                      state={{ data: location.split("/")[1] }}
                     >
                       <li>{title}</li>
-                    </NavLink>
+                    </Link>
                   ))}
                 </>
               </motion.ul>
@@ -81,13 +85,13 @@ const Header = () => {
                           className="font-normal hover:font-bold items-center text-lg text-gray-200 hover:underline underline-offset-[4px] decoration-[1px] hover:text-white md:border-r-[2px] border-r-gray-300 hoverEffect last:border-r-0"
                           key={item._id}
                         >
-                          <NavLink
-                            to={item.link}
-                            state={{ data: location.pathname.split("/")[1] }}
+                          <Link
+                            href={item.link}
+                            state={{ data: location.split("/")[1] }}
                             onClick={() => setSidenav(false)}
                           >
                             {item.title}
-                          </NavLink>
+                          </Link>
                         </li>
                       ))}
                     </ul>
