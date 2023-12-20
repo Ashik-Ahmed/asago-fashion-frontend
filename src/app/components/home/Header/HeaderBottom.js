@@ -1,11 +1,13 @@
+'use client'
+
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { FaSearch, FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
 import Flex from "../../designLayouts/Flex";
-import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { paginationItems } from "../../../constants";
+import Link from "next/link";
 
 const HeaderBottom = () => {
   const products = useSelector((state) => state.orebiReducer.products);
@@ -93,19 +95,22 @@ const HeaderBottom = () => {
               >
                 {searchQuery &&
                   filteredProducts.map((item) => (
-                    <div
+                    <Link href={`/product/${item.productName
+                      .toLowerCase()
+                      .split(" ")
+                      .join("")}`}
                       onClick={() =>
-                        navigate(
-                          `/product/${item.productName
-                            .toLowerCase()
-                            .split(" ")
-                            .join("")}`,
-                          {
-                            state: {
-                              item: item,
-                            },
-                          }
-                        ) &
+                        // navigate(
+                        //   `/product/${item.productName
+                        //     .toLowerCase()
+                        //     .split(" ")
+                        //     .join("")}`,
+                        //   {
+                        //     state: {
+                        //       item: item,
+                        //     },
+                        //   }
+                        // ) &
                         setShowSearchBar(true) &
                         setSearchQuery("")
                       }
@@ -125,7 +130,7 @@ const HeaderBottom = () => {
                           </span>
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
               </div>
             )}
@@ -142,7 +147,7 @@ const HeaderBottom = () => {
                 transition={{ duration: 0.5 }}
                 className="absolute top-6 left-0 z-50 bg-primeColor w-44 text-[#767676] h-auto p-4 pb-6"
               >
-                <Link to="/signin">
+                <Link href="/signin">
                   <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
                     Login
                   </li>
@@ -160,7 +165,7 @@ const HeaderBottom = () => {
                 </li>
               </motion.ul>
             )}
-            <Link to="/cart">
+            <Link href="/cart">
               <div className="relative">
                 <FaShoppingCart />
                 <span className="absolute font-titleFont top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-primeColor text-white">

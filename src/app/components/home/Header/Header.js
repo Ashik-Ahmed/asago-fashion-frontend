@@ -5,11 +5,11 @@ import { MdClose } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { logo, logoLight } from "../../../../assets/images";
-import Image from "../../designLayouts/Image";
 import { navBarList } from "../../../constants";
 import Flex from "../../designLayouts/Flex";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -36,7 +36,7 @@ const Header = () => {
         <Flex className="flex items-center justify-between h-full">
           <Link href="/">
             <div>
-              <Image className="w-20 object-cover" imgSrc={logo} />
+              <Image className="w-20 object-cover" src={logo} alt="logo" />
             </div>
           </Link>
           <div>
