@@ -51,7 +51,7 @@ const Header = () => {
                   {navBarList.map(({ _id, title, link }) => (
                     <Link
                       key={_id}
-                      className={`${location.includes(title) && 'underline'} active:underline flex font-normal hover:font-bold w-20 h-6 justify-center items-center px-12 text-base text-[#767676] hover:underline underline-offset-[4px] decoration-[1px] hover:text-[#262626] md:border-r-[2px] border-r-gray-300 hoverEffect last:border-r-0`}
+                      className={`${location == link && 'underline font-bold text-black'} flex hover:font-bold w-20 h-6 justify-center items-center px-12 text-base text-[#767676] hover:underline underline-offset-[4px] decoration-[1px] hover:text-[#262626] md:border-r-[2px] border-r-gray-300 hoverEffect last:border-r-0`}
                       href={link}
                     // state={{ data: location.split("/")[1] }}
                     >
