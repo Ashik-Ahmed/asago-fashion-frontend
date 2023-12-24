@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { FaSearch, FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
 import Flex from "../../designLayouts/Flex";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { paginationItems } from "../../../constants";
 import Link from "next/link";
 
 const HeaderBottom = () => {
-  const products = useSelector((state) => state.orebiReducer.products);
+  // const products = useSelector((state) => state.orebiReducer.products);
   const [show, setShow] = useState(false);
   const [showUser, setShowUser] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const ref = useRef();
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
@@ -169,7 +169,7 @@ const HeaderBottom = () => {
               <div className="relative">
                 <FaShoppingCart />
                 <span className="absolute font-titleFont top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-primeColor text-white">
-                  {products.length > 0 ? products.length : 0}
+                  {/* {products.length > 0 ? products.length : 0} */}
                 </span>
               </div>
             </Link>
