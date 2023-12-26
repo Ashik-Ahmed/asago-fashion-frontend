@@ -31,9 +31,7 @@ const HeaderBottom = () => {
     const handleClick = (e) => {
       if (ref?.current?.contains(e.target)) {
         setShow(!show);
-        console.log('setting true', show);
       } else {
-        console.log('setting false');
         setShow(false);
       }
     };
