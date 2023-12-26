@@ -17,21 +17,33 @@ const HeaderBottom = () => {
 
   const ref = useRef();
   // useEffect(() => {
-  //   console.log('ref: ', ref.current);
-  //   console.log('inside useeffect: ', show);
   //   document.body.addEventListener("click", (e) => {
-  //     console.log('target: ', e.target);
   //     if (ref?.current?.contains(e.target)) {
   //       setShow(!show);
-  //       console.log(ref?.current?.contains(e.target));
-  //       console.log('setting true');
   //     }
   //     else {
   //       setShow(false);
-  //       console.log('setting false');
   //     }
   //   });
   // }, [show, ref]);
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (ref?.current?.contains(e.target)) {
+        setShow(!show);
+        console.log('setting true', show);
+      } else {
+        console.log('setting false');
+        setShow(false);
+      }
+    };
+
+    document.body.addEventListener("click", handleClick);
+
+    return () => {
+      document.body.removeEventListener("click", handleClick);
+    };
+  }, [show, ref]);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -53,7 +65,7 @@ const HeaderBottom = () => {
       <div className="max-w-container mx-auto">
         <Flex className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full px-4 pb-4 lg:pb-0 h-full lg:h-24">
           <div
-            onClick={() => { setShow(!show); }}
+            // onClick={() => { setShow(!show); }}
             ref={ref}
             className="flex h-14 cursor-pointer items-center gap-2 text-primeColor"
           >
