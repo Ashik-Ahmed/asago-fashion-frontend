@@ -14,13 +14,16 @@ const HeaderBottom = () => {
   const [show, setShow] = useState(false);
   const [showUser, setShowUser] = useState(false);
   // const navigate = useNavigate();
+
   const ref = useRef();
   // useEffect(() => {
   //   console.log('ref: ', ref.current);
   //   console.log('inside useeffect: ', show);
   //   document.body.addEventListener("click", (e) => {
+  //     console.log('target: ', e.target);
   //     if (ref?.current?.contains(e.target)) {
-  //       setShow(true);
+  //       setShow(!show);
+  //       console.log(ref?.current?.contains(e.target));
   //       console.log('setting true');
   //     }
   //     else {
@@ -50,7 +53,7 @@ const HeaderBottom = () => {
       <div className="max-w-container mx-auto">
         <Flex className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full px-4 pb-4 lg:pb-0 h-full lg:h-24">
           <div
-            onClick={() => { setShow(!show); console.log('onclick: ', show); }}
+            onClick={() => { setShow(!show); }}
             ref={ref}
             className="flex h-14 cursor-pointer items-center gap-2 text-primeColor"
           >
@@ -62,7 +65,7 @@ const HeaderBottom = () => {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="absolute top-36 z-50 bg-primeColor w-auto text-[#767676] h-auto p-4 pb-6"
+                className="absolute top-28 z-50 bg-primeColor w-auto text-[#767676] h-auto p-4 pb-6"
               >
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
                   Accessories
@@ -174,7 +177,7 @@ const HeaderBottom = () => {
               <div className="relative">
                 <FaShoppingCart />
                 <span className="absolute font-titleFont top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-primeColor text-white">
-                  {/* {products.length > 0 ? products.length : 0} */}
+                  {/* {products.length > 0 ? products.length : 0} */} 0
                 </span>
               </div>
             </Link>

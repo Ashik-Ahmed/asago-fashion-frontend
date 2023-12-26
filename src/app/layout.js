@@ -1,5 +1,6 @@
 import Header from './components/home/Header/Header'
 import HeaderBottom from './components/home/Header/HeaderBottom'
+import SpecialCase from './components/specialCase/specialCase'
 import './globals.css'
 
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
 
         <Header />
         <HeaderBottom />
+        <SpecialCase />
         <div>
           {children}
         </div>
