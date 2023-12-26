@@ -1,9 +1,11 @@
+"use client"
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaFacebook, FaYoutube, FaLinkedin, FaGithub } from "react-icons/fa";
 import FooterListTitle from "./FooterListTitle";
-import { paymentCard } from "../../../assets/images";
 import Image from "../../designLayouts/Image";
+import { paymentCard } from "@/assets/images";
 
 const Footer = () => {
   const [emailInfo, setEmailInfo] = useState("");
@@ -31,7 +33,7 @@ const Footer = () => {
     <div className="w-full bg-[#F5F5F3] py-20">
       <div className="max-w-container mx-auto grid grid-cols-1 md:grid-cols-2  xl:grid-cols-6 px-4 gap-10">
         <div className="col-span-2">
-          <FooterListTitle title=" More about Orebi Shop" />
+          <FooterListTitle title=" More about Asago Fashion" />
           <div className="flex flex-col gap-6">
             <p className="text-base w-full xl:w-[80%]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim sint
@@ -158,10 +160,10 @@ const Footer = () => {
             )}
 
             <Image
-              className={`w-[80%] lg:w-[60%] mx-auto ${
-                subscription ? "mt-2" : "mt-6"
-              }`}
-              imgSrc={paymentCard}
+              className={`w-[80%] lg:w-[60%] mx-auto ${subscription ? "mt-2" : "mt-6"
+                }`}
+              src={paymentCard}
+              alt="paymentCard"
             />
           </div>
         </div>
