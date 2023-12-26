@@ -1,9 +1,12 @@
+'use client'
+import { motion } from "framer-motion";
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+// import { motion } from 'framer-motion';
 import Breadcrumbs from '../components/pageProps/Breadcrumbs';
 import ItemCard from './ItemCard';
+import { emptyCart } from "@/assets/images";
 
 const Cart = () => {
     // const dispatch = useDispatch();
