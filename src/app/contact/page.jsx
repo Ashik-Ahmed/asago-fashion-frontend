@@ -7,10 +7,10 @@ import { useRouter } from "next/navigation";
 const Contact = () => {
     const location = useRouter();
     const [prevLocation, setPrevLocation] = useState("");
-    useEffect(() => {
-        console.log(location);
-        setPrevLocation(location.back.name);
-    }, [location]);
+    // useEffect(() => {
+    //     console.log(location);
+    //     setPrevLocation(location.back.name);
+    // }, [location]);
 
     const [clientName, setclientName] = useState("");
     const [email, setEmail] = useState("");
@@ -104,7 +104,7 @@ const Contact = () => {
                                 value={email}
                                 className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor"
                                 type="email"
-                                placeholder="Enter your name here"
+                                placeholder="Enter your email here"
                             />
                             {errEmail && (
                                 <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
@@ -124,7 +124,7 @@ const Contact = () => {
                                 rows="3"
                                 className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor resize-none"
                                 type="text"
-                                placeholder="Enter your name here"
+                                placeholder="Enter your messages here"
                             ></textarea>
                             {errMessages && (
                                 <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
@@ -135,8 +135,7 @@ const Contact = () => {
                         </div>
                         <button
                             onClick={handlePost}
-                            className="w-44 bg-primeColor text-gray-200 h-10 font-titleFont text-base tracking-wide font-semibold hover:bg-black hover:text-white duration-200"
-                        >
+                            className="w-44 bg-primeColor text-gray-200 h-10 font-titleFont text-base tracking-wide font-semibold hover:bg-black hover:text-white duration-200">
                             Post
                         </button>
                     </div>
