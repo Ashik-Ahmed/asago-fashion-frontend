@@ -1,10 +1,12 @@
+"use client";
+
 import React, { useState } from "react";
 import Slider from "react-slick";
 import {
   bannerImgOne,
   bannerImgTwo,
   bannerImgThree,
-} from "../../assets/images";
+} from "../../../assets/images";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -101,20 +103,20 @@ const Banner = () => {
   };
   return (
     <div className="w-full bg-white">
-      <Slider {...settings}>
+      <Slider >
         <Link href="/offer">
           <div>
-            <Image src={bannerImgOne} alt="banner" />
+            <Image src={bannerImgOne} alt="banner1" />
           </div>
         </Link>
         <Link href="/offer">
           <div>
-            <Image src={bannerImgTwo} alt="banner" />
+            <Image src={bannerImgTwo} alt="banner2" />
           </div>
         </Link>
         <Link href="/offer">
           <div>
-            <Image src={bannerImgThree} alt="banner" />
+            <Image src={bannerImgThree} alt="banner3" />
           </div>
         </Link>
       </Slider>

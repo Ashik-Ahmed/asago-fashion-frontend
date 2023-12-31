@@ -17,10 +17,10 @@ const Header = () => {
   const [category, setCategory] = useState(false);
   const [brand, setBrand] = useState(false);
   const location = usePathname()
-  console.log('url: ', location);
+  // console.log('url: ', location);
   useEffect(() => {
     let ResponsiveMenu = () => {
-      if (window.innerWidth < 667) {
+      if (window.outerWidth < 667) {
         setShowMenu(false);
       } else {
         setShowMenu(true);
