@@ -14,7 +14,7 @@ export default function Home() {
       <div>
         <div className="max-w-container mx-auto px-4">
           <Sale />
-          <NewArrivals />
+          {/* <NewArrivals /> */}
           <BestSellers />
           <YearProduct />
           <SpecialOffers />

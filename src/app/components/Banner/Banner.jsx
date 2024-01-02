@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Slider from "react-slick";
+
 import {
   bannerImgOne,
   bannerImgTwo,
@@ -103,9 +104,9 @@ const Banner = () => {
   };
   return (
     <div className="w-full bg-white">
-      <Slider >
+      <Slider {...settings} >
         <Link href="/offer">
-          <div>
+          <div className="border-4 border-yellow-600" >
             <Image src={bannerImgOne} alt="banner1" />
           </div>
         </Link>
