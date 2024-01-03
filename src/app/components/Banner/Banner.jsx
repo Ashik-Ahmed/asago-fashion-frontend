@@ -12,6 +12,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Banner = () => {
+  const banners = [bannerImgOne, bannerImgTwo, bannerImgThree];
   const [dotActive, setDocActive] = useState(0);
   const settings = {
     dots: true,
@@ -55,7 +56,16 @@ const Banner = () => {
             }
         }
       >
-        0{i + 1}
+        <p
+          style={
+            i === dotActive
+              ? { color: "black", fontWeight: "600" }
+              : { color: "white", fontWeight: "600" }
+          }
+        >
+          {" "}
+          0{i + 1}
+        </p>
       </div>
     ),
     responsive: [
@@ -103,23 +113,20 @@ const Banner = () => {
     ],
   };
   return (
-    <div className="w-full bg-white">
-      <Slider {...settings} >
-        <Link href="/offer">
-          <div className="border-4 border-yellow-600" >
-            <Image src={bannerImgOne} alt="banner1" />
-          </div>
-        </Link>
-        <Link href="/offer">
-          <div>
-            <Image src={bannerImgTwo} alt="banner2" />
-          </div>
-        </Link>
-        <Link href="/offer">
-          <div>
-            <Image src={bannerImgThree} alt="banner3" />
-          </div>
-        </Link>
+    <div>
+      <Slider {...settings}>
+        {banners?.map((item, index) => (
+          <Link key={index} href={"/shop"} className="relative">
+            <Image
+              src={item}
+              alt="banner image"
+              width={2000}
+              height={2000}
+              className="w-full max-h-[650px] object-cover"
+            />
+            <div className="w-full h-40 bg-gradient-to-t from-gray-100 to-transparent absolute bottom-0 z-20" />
+          </Link>
+        ))}
       </Slider>
     </div>
   );
